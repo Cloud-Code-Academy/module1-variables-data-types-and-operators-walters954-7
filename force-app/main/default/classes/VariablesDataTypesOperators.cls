@@ -70,10 +70,11 @@ public with sharing class VariablesDataTypesOperators {
      * @return The quotient of the division, or 0 if the denominator is zero.
      */
     public static Double division(Double a, Double b) {
-        if (a == null) {
+        if (a == null || b == null) {
             return 0.0;
         }
-        return null; // Replace null with the variable you used to store the result
+        Double result = a / b;
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
