@@ -88,7 +88,7 @@ public with sharing class VariablesDataTypesOperators {
      * @return True if the number is even, False otherwise.
      */
     public static Boolean isEven(Integer num) {
-        return null; // Replace null with the variable you used to store the result
+        return false; // Replace null with the variable you used to store the result
     }
 
     /**
