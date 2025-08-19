@@ -99,7 +99,7 @@ public with sharing class VariablesDataTypesOperators {
      * @return true if the number is positive, false otherwise.
      */
     public static Boolean isPositive(Integer num) {
-        return null; // Replace null with the variable you used to store the result
+        return false; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -164,9 +164,9 @@ public with sharing class VariablesDataTypesOperators {
      * @param minutes The number of minutes.
      * @return The number of milliseconds equivalent to the given number of minutes.
      */
-    Integer MILLISECONDS_PER_MINUTE = null; // Make this value a constant
+    static Integer MILLISECONDS_PER_MINUTE = null; // Make this value a constant
     public static Integer convertMinutesToMilliseconds(Integer minutes) {
-        Integer milliseconds;
+        Integer milliseconds = MILLISECONDS_PER_MINUTE;
         return null; // Replace null with the variable you used to store the result
     }    
 

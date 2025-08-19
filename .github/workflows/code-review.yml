@@ -1,0 +1,37 @@
+name: Run Apex Module 1 Code Review
+
+# Definition when the workflow should run
+on:
+    # The workflow will run when manually triggered
+    workflow_dispatch:
+        inputs:
+            sfdx_auth_url:
+                description: 'SFDX Auth URL'
+                required: false
+    # The workflow will also run when called from another workflow (e.g., pull requests)
+    workflow_call:
+
+jobs:
+    scan:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Install sfdx with npm
+              run: |
+                  npm i @salesforce/cli --global
+
+            - name: Install Code Analyzer plugin
+              run: |
+                  sf plugins install code-analyzer
+
+            - name: Scan code with Code Analyzer v5
+              run: |
+                  sf code-analyzer run --rule-selector Recommended --workspace force-app/ --output-file apexScanResults.sarif
+
+            - name: Upload SARIF file
+              if: always()
+              uses: github/codeql-action/upload-sarif@v3
+              with:
+                  sarif_file: apexScanResults.sarif
