@@ -11,6 +11,12 @@ on:
     # The workflow will also run when called from another workflow (e.g., pull requests)
     workflow_call:
 
+# Permissions needed for uploading SARIF results
+permissions:
+    security-events: write
+    actions: read
+    contents: read
+
 jobs:
     scan:
         runs-on: ubuntu-latest
